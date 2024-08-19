@@ -28,7 +28,8 @@ $uri = service('uri');; ?>
         Halaman Administrator
     </title>
     <!--     Fonts and icons     -->
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
+    <link rel="stylesheet" type="text/css"
+        href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
     <!-- Nucleo Icons -->
     <link href="/template/admin/assets/css/nucleo-icons.css" rel="stylesheet" />
     <link href="/template/admin/assets/css/nucleo-svg.css" rel="stylesheet" />
@@ -42,9 +43,12 @@ $uri = service('uri');; ?>
 </head>
 
 <body class="g-sidenav-show  bg-gray-200">
-    <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark" id="sidenav-main">
+    <aside
+        class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark"
+        id="sidenav-main">
         <div class="sidenav-header">
-            <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
+            <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
+                aria-hidden="true" id="iconSidenav"></i>
             <a class="navbar-brand m-0" href="javascript:void(0)" target="_blank">
                 <img src="/logo/thumb/thumb_<?=$instansi->logo;?>" class="navbar-brand-img h-100" alt="main_logo">
                 <span class="ms-1 font-weight-bold text-white">Halaman Administrator</span>
@@ -62,7 +66,8 @@ $uri = service('uri');; ?>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white <?= ($uri->getSegment(2) == 'daftarBarang') ? 'active' : ''; ?>" href="/admin/daftarBarang">
+                    <a class="nav-link text-white <?= ($uri->getSegment(2) == 'daftarBarang') ? 'active' : ''; ?>"
+                        href="/admin/daftarBarang">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">table_view</i>
                         </div>
@@ -70,7 +75,8 @@ $uri = service('uri');; ?>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white <?= ($uri->getSegment(2) == 'daftarBarangDipinjam') ? 'active' : ''; ?>" href="/admin/daftarBarangDipinjam">
+                    <a class="nav-link text-white <?= ($uri->getSegment(2) == 'daftarBarangDipinjam') ? 'active' : ''; ?>"
+                        href="/admin/daftarBarangDipinjam">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">shopping_cart_checkout</i>
                         </div>
@@ -78,7 +84,8 @@ $uri = service('uri');; ?>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white <?= ($uri->getSegment(2) == 'daftarBarangDiambil') ? 'active' : ''; ?>" href="/admin/daftarBarangDiambil">
+                    <a class="nav-link text-white <?= ($uri->getSegment(2) == 'daftarBarangDiambil') ? 'active' : ''; ?>"
+                        href="/admin/daftarBarangDiambil">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">sync_disabled</i>
                         </div>
@@ -99,11 +106,13 @@ $uri = service('uri');; ?>
     </aside>
     <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
         <!-- Navbar -->
-        <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" data-scroll="true">
+        <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur"
+            data-scroll="true">
             <div class="container-fluid py-1 px-3">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
-                        <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a></li>
+                        <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a>
+                        </li>
 
                     </ol>
                     <h6 class="font-weight-bolder mb-0"><?= halaman($uri->getSegment(2)) ;?></h6>
@@ -113,12 +122,12 @@ $uri = service('uri');; ?>
 
                     <div class="ms-md-auto pe-md-3 d-flex align-items-center">
                         <?php if ($uri->getSegment(2) == 'daftarBarang') : ?>
-                            <?= form_open(''); ?>
-                            <div class="input-group input-group-outline">
-                                <label class="form-label">Pencarian...</label>
-                                <input type="text" name="search" id="search" class="form-control">
-                            </div>
-                            <?= form_close(); ?>
+                        <?= form_open(''); ?>
+                        <div class="input-group input-group-outline">
+                            <label class="form-label">Pencarian...</label>
+                            <input type="text" name="search" id="search" class="form-control">
+                        </div>
+                        <?= form_close(); ?>
                         <?php endif; ?>
                     </div>
 
@@ -127,10 +136,12 @@ $uri = service('uri');; ?>
 
 
                         <li class="nav-item dropdown pe-2 d-flex align-items-center">
-                            <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton"
+                                data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fa fa-bell cursor-pointer"></i>
                             </a>
-                            <ul class="dropdown-menu  dropdown-menu-end  px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton">
+                            <ul class="dropdown-menu  dropdown-menu-end  px-2 py-3 me-sm-n4"
+                                aria-labelledby="dropdownMenuButton">
                                 <li class="mb-0">
                                     <a class="dropdown-item border-radius-md" href="javascript:;">
                                         <div class="d-flex py-1">
@@ -168,7 +179,7 @@ $uri = service('uri');; ?>
                                         </div>
                                     </a>
                                 </li> -->
-                             
+
                             </ul>
                         </li>
                         <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
@@ -196,26 +207,31 @@ $uri = service('uri');; ?>
                     <div class="col-lg-6 mb-lg-0 mb-4">
                         <div class="copyright text-center text-sm text-muted text-lg-start">
                             © <script>
-                                document.write(new Date().getFullYear())
+                            document.write(new Date().getFullYear())
                             </script>,
                             made with <i class="fa fa-heart"></i> by
-                            <a href="https://www.creative-tim.com" class="font-weight-bold" target="_blank">Creative Tim</a>
+                            <a href="https://www.creative-tim.com" class="font-weight-bold" target="_blank">Creative
+                                Tim</a>
                             for a better web.
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <ul class="nav nav-footer justify-content-center justify-content-lg-end">
                             <li class="nav-item">
-                                <a href="https://www.creative-tim.com" class="nav-link text-muted" target="_blank">Creative Tim</a>
+                                <a href="https://www.creative-tim.com" class="nav-link text-muted"
+                                    target="_blank">Creative Tim</a>
                             </li>
                             <li class="nav-item">
-                                <a href="https://www.creative-tim.com/presentation" class="nav-link text-muted" target="_blank">About Us</a>
+                                <a href="https://www.creative-tim.com/presentation" class="nav-link text-muted"
+                                    target="_blank">About Us</a>
                             </li>
                             <li class="nav-item">
-                                <a href="https://www.creative-tim.com/blog" class="nav-link text-muted" target="_blank">Blog</a>
+                                <a href="https://www.creative-tim.com/blog" class="nav-link text-muted"
+                                    target="_blank">Blog</a>
                             </li>
                             <li class="nav-item">
-                                <a href="https://www.creative-tim.com/license" class="nav-link pe-0 text-muted" target="_blank">License</a>
+                                <a href="https://www.creative-tim.com/license" class="nav-link pe-0 text-muted"
+                                    target="_blank">License</a>
                             </li>
                         </ul>
                     </div>
@@ -224,7 +240,8 @@ $uri = service('uri');; ?>
         </footer>
     </main>
 
-    <div class="modal fade" id="setAdmin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="setAdmin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content bg-gradient-info">
                 <div class="modal-header">
@@ -236,22 +253,25 @@ $uri = service('uri');; ?>
                     <div class="row mb-2">
                         <div class="input-group input-group-outline">
                             <label for="" class="col-4">Email Login</label>
-                            <input type="email" name="email" id="email" required class="form-control" placeholder="Masukkan Email Login Admin" value="<?= $admin->email ;?>">
+                            <input type="email" name="email" id="email" required class="form-control"
+                                placeholder="Masukkan Email Login Admin" value="<?= $admin->email ;?>">
                         </div>
                     </div>
                     <div class="row mb-2">
                         <div class="input-group input-group-outline">
                             <label for="" class="col-4">Nama Administrator</label>
-                            <input type="text"  name="nama" id="nama" required class="form-control" placeholder="Masukkan nama administrator" value="<?= $admin->nama ;?>">
+                            <input type="text" name="nama" id="nama" required class="form-control"
+                                placeholder="Masukkan nama administrator" value="<?= $admin->nama ;?>">
                         </div>
                     </div>
                     <div class="row mb-2">
                         <div class="input-group input-group-outline">
                             <label for="" class="col-4">Password Login</label>
-                            <input type="text"  name="password" id="password" class="form-control" placeholder="Password Login">
+                            <input type="text" name="password" id="password" class="form-control"
+                                placeholder="Password Login">
                         </div>
                     </div>
-                   
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn bg-gradient-warning" data-bs-dismiss="modal">Tutup</button>
@@ -262,7 +282,8 @@ $uri = service('uri');; ?>
         </div>
     </div>
 
-    <div class="modal fade" id="setInstansi" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="setInstansi" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content bg-gradient-info">
                 <div class="modal-header">
@@ -274,19 +295,22 @@ $uri = service('uri');; ?>
                     <div class="row mb-2">
                         <div class="input-group input-group-outline">
                             <label for="" class="col-4">Nama Instansi</label>
-                            <input type="text" name="namaInstansi" id="namaInstansi" required class="form-control" placeholder="Masukkan Nama Instansi" value="<?= $instansi->namaInstansi ;?>">
+                            <input type="text" name="namaInstansi" id="namaInstansi" required class="form-control"
+                                placeholder="Masukkan Nama Instansi" value="<?= $instansi->namaInstansi ;?>">
                         </div>
                     </div>
                     <div class="row mb-2">
                         <div class="input-group input-group-outline">
                             <label for="" class="col-4">Alamat Instansi</label>
-                            <textarea name="alamat" id="alamat" class="form-control" rows="2"><?= $instansi->alamat;?></textarea>
+                            <textarea name="alamat" id="alamat" class="form-control"
+                                rows="2"><?= $instansi->alamat;?></textarea>
                         </div>
                     </div>
                     <div class="row mb-2">
                         <div class="input-group input-group-outline">
                             <label for="" class="col-4">Api Whatsapp</label>
-                            <input type="text" name="api" id="api" class="form-control" placeholder="Masukkan API Whatsapp" value="<?= $instansi->api ;?>">
+                            <input type="text" name="api" id="api" class="form-control"
+                                placeholder="Masukkan API Whatsapp" value="<?= $instansi->api ;?>">
                         </div>
                     </div>
                     <div class="row mb-2">
@@ -295,7 +319,7 @@ $uri = service('uri');; ?>
                             <input type="file" name="logo" id="logo">
                         </div>
                     </div>
-                   
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn bg-gradient-warning" data-bs-dismiss="modal">Tutup</button>
@@ -327,9 +351,14 @@ $uri = service('uri');; ?>
             <div class="card-body pt-sm-3 pt-0">
                 <!-- Sidebar Backgrounds -->
                 <div class="mb-0">
-                <button class="btn bg-gradient-danger text-white" data-bs-toggle="modal" data-bs-target="#setAdmin"><i class="material-icons opacity-10 text-white">settings</i> Akun Admin</button>
-                <a href="/admin/users" class="btn bg-gradient-primary text-white"><i class="material-icons opacity-10 text-white">people</i> Pengguna</a>
-                <button class="btn bg-gradient-info text-white" data-bs-toggle="modal" data-bs-target="#setInstansi"><i class="material-icons opacity-10 text-white">account_balance</i> Instansi</button>
+                    <button class="btn bg-gradient-danger text-white" data-bs-toggle="modal"
+                        data-bs-target="#setAdmin"><i class="material-icons opacity-10 text-white">settings</i> Akun
+                        Admin</button>
+                    <a href="/admin/users" class="btn bg-gradient-primary text-white"><i
+                            class="material-icons opacity-10 text-white">people</i> Pengguna</a>
+                    <button class="btn bg-gradient-info text-white" data-bs-toggle="modal"
+                        data-bs-target="#setInstansi"><i
+                            class="material-icons opacity-10 text-white">account_balance</i> Instansi</button>
                 </div>
                 <hr class="horizontal dark my-sm-4">
                 <div>
@@ -337,24 +366,33 @@ $uri = service('uri');; ?>
                 </div>
                 <a href="javascript:void(0)" class="switch-trigger background-color">
                     <div class="badge-colors my-2 text-start">
-                        <span class="badge filter bg-gradient-primary active" data-color="primary" onclick="sidebarColor(this)"></span>
-                        <span class="badge filter bg-gradient-dark" data-color="dark" onclick="sidebarColor(this)"></span>
-                        <span class="badge filter bg-gradient-info" data-color="info" onclick="sidebarColor(this)"></span>
-                        <span class="badge filter bg-gradient-success" data-color="success" onclick="sidebarColor(this)"></span>
-                        <span class="badge filter bg-gradient-warning" data-color="warning" onclick="sidebarColor(this)"></span>
-                        <span class="badge filter bg-gradient-danger" data-color="danger" onclick="sidebarColor(this)"></span>
+                        <span class="badge filter bg-gradient-primary active" data-color="primary"
+                            onclick="sidebarColor(this)"></span>
+                        <span class="badge filter bg-gradient-dark" data-color="dark"
+                            onclick="sidebarColor(this)"></span>
+                        <span class="badge filter bg-gradient-info" data-color="info"
+                            onclick="sidebarColor(this)"></span>
+                        <span class="badge filter bg-gradient-success" data-color="success"
+                            onclick="sidebarColor(this)"></span>
+                        <span class="badge filter bg-gradient-warning" data-color="warning"
+                            onclick="sidebarColor(this)"></span>
+                        <span class="badge filter bg-gradient-danger" data-color="danger"
+                            onclick="sidebarColor(this)"></span>
                     </div>
                 </a>
                 <!-- Sidenav Type -->
-               
+
                 <hr class="horizontal dark my-sm-4">
                 <h6 class="mt-3">Follow And Support Me</h6>
-                <a class="btn bg-gradient-info w-45" target="_blank" href="https://www.youtube.com/channel/UCGHEa18bAd6jmmamIV4EmWQ">Youtube</a>
-                <a class="btn bg-gradient-success w-45" target="_blank" href="https://github.com/gurumuda/pinjamBarang">GitHub</a>
+                <a class="btn bg-gradient-info w-45" target="_blank"
+                    href="https://www.youtube.com/channel/UCGHEa18bAd6jmmamIV4EmWQ">Youtube</a>
+                <a class="btn bg-gradient-success w-45" target="_blank"
+                    href="https://github.com/gurumuda/pinjamBarang">GitHub</a>
                 <div style="position:absolute; bottom: 10px">
-                    
+
                     <h6 class="mt-3">Thank you Using this App!</h6>
-                    <a href="https://t.me/yuwandianto" target="_blank" class="btn btn-dark btn-sm mb-0 me-2" target="_blank">
+                    <a href="https://t.me/yuwandianto" target="_blank" class="btn btn-dark btn-sm mb-0 me-2"
+                        target="_blank">
                         <i class="fab fa-telegram me-1" aria-hidden="true"></i> Telegram
                     </a>
                 </div>
@@ -364,14 +402,16 @@ $uri = service('uri');; ?>
 
 
     <div class="position-fixed top-1 end-1" style="z-index: 100000;">
-        <div class="toast fade hide p-2 mt-2 bg-gradient-info" role="alert" aria-live="assertive" id="infoToast" aria-atomic="true" data-bs-delay="10000">
+        <div class="toast fade hide p-2 mt-2 bg-gradient-info" role="alert" aria-live="assertive" id="infoToast"
+            aria-atomic="true" data-bs-delay="10000">
             <div class="toast-header bg-transparent border-0">
                 <i class="material-icons text-white me-2">
                     notifications
                 </i>
                 <span class="me-auto text-white font-weight-bold">Info </span>
                 <small class="text-white">1 second ago</small>
-                <i class="fas fa-times text-md text-white ms-3 cursor-pointer" data-bs-dismiss="toast" aria-label="Close"></i>
+                <i class="fas fa-times text-md text-white ms-3 cursor-pointer" data-bs-dismiss="toast"
+                    aria-label="Close"></i>
             </div>
             <hr class="horizontal light m-0">
             <div class="toast-body text-white">
@@ -387,7 +427,7 @@ $uri = service('uri');; ?>
     <script src="/template/admin/assets/js/plugins/smooth-scrollbar.min.js"></script>
     <script src="/template/admin/assets/js/plugins/chartjs.min.js"></script>
 
- 
+
     <!-- Github buttons -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
@@ -402,22 +442,23 @@ $uri = service('uri');; ?>
     <script src="/template/myscript/admin.js"></script>
 
     <?php if (session()->getFlashdata('pesan')) : ?>
-        <script>
-            Swal.fire({
-                icon: '<?= session()->getFlashdata('tipe'); ?>',
-                text: '<?= session()->getFlashdata('pesan'); ?>'
-            })
-        </script>
+    <script>
+    Swal.fire({
+        icon: '<?= session()->getFlashdata('tipe'); ?>',
+        text: '<?= session()->getFlashdata('pesan'); ?>'
+    })
+    </script>
     <?php endif; ?>
     <script>
-        /*jslint browser:true*/
-        /*global jQuery, document*/
+    /*jslint browser:true*/
+    /*global jQuery, document*/
 
-        jQuery(document).ready(function() {
-            'use strict';
+    jQuery(document).ready(function() {
+        'use strict';
 
-            jQuery('#filter-date, #filter-date-2, #filter-date-3, #search-from-date, #search-to-date').datetimepicker();
-        });
+        jQuery('#filter-date, #filter-date-2, #filter-date-3, #search-from-date, #search-to-date')
+            .datetimepicker();
+    });
     </script>
 
 </body>

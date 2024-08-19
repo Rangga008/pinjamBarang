@@ -6,7 +6,8 @@
     <div class="row">
         <div class="col-lg-2 d-grid gap-2">
             <!-- Button trigger modal -->
-            <button type="button" class="btn bg-gradient-success" data-bs-toggle="modal" data-bs-target="#modalTambahBarang">
+            <button type="button" class="btn bg-gradient-success" data-bs-toggle="modal"
+                data-bs-target="#modalTambahBarang">
                 Tambah Barang
             </button>
         </div>
@@ -32,45 +33,80 @@
                         <table class="table align-items-center mb-0">
                             <thead>
                                 <tr>
-                                    <th style="width: 2%;" class="text-uppercase text-secondary text-sm font-weight-bolder opacity-7">No</th>
+                                    <th style="width: 2%;"
+                                        class="text-uppercase text-secondary text-sm font-weight-bolder opacity-7">No
+                                    </th>
                                     <th style="width: 1%;" class="ps-2">#</th>
-                                    <th class="text-uppercase text-secondary text-sm font-weight-bolder opacity-7 ps-2">Kode Barang</th>
-                                    <th class="text-uppercase text-secondary text-sm font-weight-bolder opacity-7 ps-2">Nama Barang</th>
-                                    <th class="text-uppercase text-secondary text-sm font-weight-bolder opacity-7 ps-2">Stok</th>
-                                    <th class="text-uppercase text-secondary text-sm font-weight-bolder opacity-7 ps-2">Dimiliki</th>
-                                    <th class="text-uppercase text-secondary text-sm font-weight-bolder opacity-7 ps-2">Satuan</th>
+                                    <th class="text-uppercase text-secondary text-sm font-weight-bolder opacity-7 ps-2">
+                                        Kode Barang</th>
+                                    <th class="text-uppercase text-secondary text-sm font-weight-bolder opacity-7 ps-2">
+                                        Nama Barang</th>
+                                    <th class="text-uppercase text-secondary text-sm font-weight-bolder opacity-7 ps-2">
+                                        Stok</th>
+                                    <th class="text-uppercase text-secondary text-sm font-weight-bolder opacity-7 ps-2">
+                                        Dimiliki</th>
+                                    <th class="text-uppercase text-secondary text-sm font-weight-bolder opacity-7 ps-2">
+                                        Satuan</th>
                                     <th class="text-uppercase text-secondary text-sm opacity-7 ps-2">Aksi</th>
                                 </tr>
                             </thead>
+                            <?php 
+    // Initialize $nomor if not already set
+    $nomor = isset($nomor) ? $nomor : 1; 
+
+    // Ensure $pager is set and is an object
+    if (!isset($pager) || !is_object($pager)) {
+        $pager = null; // Handle this case based on your logic
+    }
+?>
+
                             <tbody>
-                                <?php foreach ($barang as $brg) : ?>
-                                    <tr>
-                                        <td class="ps-4 text-xs">
-                                            <?= $nomor++; ?>
-                                        </td>
-                                        <td>
-                                            <input type="checkbox" name="hapus[]" value="<?= $brg->id; ?>">
-                                        </td>
-                                        <td class="text-xs"><?= $brg->kodeBarang; ?></td>
-                                        <td class="text-xs"><?= $brg->namaBarang; ?></td>
-                                        <td class="text-xs"><?= $brg->stokBarang; ?></td>
-                                        <td class="text-xs"><?= $brg->jmlDimiliki; ?></td>
-                                        <td class="text-xs"><?= $brg->satuan; ?></td>
-                                        <td class="text-xs">
-                                            <span type="button" class="badge bg-gradient-warning tombolUbahBarang" data-id="<?= $brg->id; ?>">Ubah</span>
-                                            <span type="button" class="badge bg-gradient-danger tombolHapus" data-id="<?= $brg->id; ?>" data-nama="<?= $brg->namaBarang; ?>">Hapus</span>
-                                            <span type="button" class="badge bg-gradient-info tombolCetakBarcode" data-id="<?= $brg->id; ?>">Cetak Barcode</span>
-                                        </td>
-                                    </tr>
+                                <?php if (isset($barang) && !empty($barang)): ?>
+                                <?php foreach ($barang as $brg): ?>
+                                <tr>
+                                    <td class="ps-4 text-xs">
+                                        <?= $nomor++; ?>
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" name="hapus[]"
+                                            value="<?= htmlspecialchars($brg->id, ENT_QUOTES, 'UTF-8'); ?>">
+                                    </td>
+                                    <td class="text-xs"><?= htmlspecialchars($brg->kodeBarang, ENT_QUOTES, 'UTF-8'); ?>
+                                    </td>
+                                    <td class="text-xs"><?= htmlspecialchars($brg->namaBarang, ENT_QUOTES, 'UTF-8'); ?>
+                                    </td>
+                                    <td class="text-xs"><?= htmlspecialchars($brg->stokBarang, ENT_QUOTES, 'UTF-8'); ?>
+                                    </td>
+                                    <td class="text-xs"><?= htmlspecialchars($brg->jmlDimiliki, ENT_QUOTES, 'UTF-8'); ?>
+                                    </td>
+                                    <td class="text-xs"><?= htmlspecialchars($brg->satuan, ENT_QUOTES, 'UTF-8'); ?></td>
+                                    <td class="text-xs">
+                                        <span type="button" class="badge bg-gradient-warning tombolUbahBarang"
+                                            data-id="<?= htmlspecialchars($brg->id, ENT_QUOTES, 'UTF-8'); ?>">Ubah</span>
+                                        <span type="button" class="badge bg-gradient-danger tombolHapus"
+                                            data-id="<?= htmlspecialchars($brg->id, ENT_QUOTES, 'UTF-8'); ?>"
+                                            data-nama="<?= htmlspecialchars($brg->namaBarang, ENT_QUOTES, 'UTF-8'); ?>">Hapus</span>
+                                        <span type="button" class="badge bg-gradient-info tombolCetakBarcode"
+                                            data-id="<?= htmlspecialchars($brg->id, ENT_QUOTES, 'UTF-8'); ?>">Cetak
+                                            Barcode</span>
+                                    </td>
+                                </tr>
                                 <?php endforeach; ?>
+                                <?php else: ?>
+                                <tr>
+                                    <td colspan="8" class="text-center">No data available</td>
+                                </tr>
+                                <?php endif; ?>
                             </tbody>
                         </table>
                     </div>
                 </div>
                 <div class="card-footer">
+                    <?php if ($pager): ?>
                     <?= $pager->links('dataBarang', 'my_pagination') ?>
-
+                    <?php endif; ?>
                 </div>
+
 
 
 
@@ -85,7 +121,8 @@
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="modalTambahBarang" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="modalTambahBarang" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -107,8 +144,8 @@
                 <div class="input-group input-group-outline mb-4">
                     <select name="jenisBarang" id="jenisBarang" class="form-control">
                         <option value="">-- Pilih Kategori Barang --</option>
-                        <option value="2">Barang Habis Pakai</option>
-                        <option value="1">Barang Modal</option>
+                        <option value="2">Barang Besar</option>
+                        <option value="1">Barang Kecil</option>
                     </select>
                 </div>
                 <div class="input-group input-group-outline mb-4 target">
@@ -129,7 +166,8 @@
 </div>
 
 
-<div class="modal fade" id="modalUbahBarang" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="modalUbahBarang" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -159,8 +197,8 @@
                     </div>
                     <select name="ubahJenisBarang" id="ubahJenisBarang" class="form-control" required>
                         <option value="">-- Pilih Jenis Barang --</option>
-                        <option value="2">Barang Habis Pakai</option>
-                        <option value="1">Barang Modal</option>
+                        <option value="2">Barang Besar</option>
+                        <option value="1">Barang Kecil</option>
                     </select>
                 </div>
                 <div class="input-group input-group-outline mb-2">
@@ -182,7 +220,8 @@
                     <div class="col-sm-8">
 
                         <input type="text" name="ubahSatuan" id="ubahSatuan" class="form-control" required>
-                        <small class="mb-4" style="font-size: 8pt;">buah, lusin, box, lembar, liter, kg, meter, dll</small>
+                        <small class="mb-4" style="font-size: 8pt;">buah, lusin, box, lembar, liter, kg, meter,
+                            dll</small>
                     </div>
                 </div>
             </div>
@@ -195,7 +234,8 @@
     </div>
 </div>
 
-<div class="modal fade" id="modalCetakBarcode" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="modalCetakBarcode" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
